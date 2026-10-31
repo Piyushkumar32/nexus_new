@@ -122,3 +122,4 @@
 - [v2.0.114] alerts/channels: add webhook retry backoff and timeout handling (cycle 5)
 - [v2.0.115] database/repository: optimize SQLite WAL mode indexing and query planner (cycle 5)
 - [v2.0.116] database/backup: implement transactional database snapshot rotation (cycle 5)
+- [v2.0.117] security/auditor: update suspicious process signatures and port lists (cycle 5)
