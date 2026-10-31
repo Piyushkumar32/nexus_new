@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import json
 from types import SimpleNamespace
@@ -17,8 +17,9 @@ from nexus.database.repository import Repository
 from nexus.diagnostics.engine import diagnose
 from nexus.logs.analyzer import analyze_log
 from nexus.logs.parser import parse_line
-from nexus.monitoring import cpu, disk, memory, processes
+from nexus.monitoring import cpu, disk, memory, network, processes
 from nexus.reporting.exporters import export_report
+from nexus.services import NexusService
 
 
 def test_config_defaults_and_validation(tmp_path):
@@ -207,3 +208,44 @@ def test_all_cli_commands(tmp_path):
         result = runner.invoke(app, ["--config", str(config), *command])
         assert result.exit_code == 0, f"{command}: {result.output}"
     assert (tmp_path / "report.json").exists()
+def test_network_collector():
+    net = network.collect_network()
+    assert isinstance(net, dict)
+    assert "bytes_sent" in net
+    assert "interfaces" in net
+
+
+def test_scheduler_lifecycle():
+    from nexus.automation.scheduler import Scheduler
+    ran = []
+    sched = Scheduler()
+    sched.add_job("test_tick", 0.1, lambda: ran.append(1))
+    sched.start()
+    import time
+    time.sleep(0.3)
+    sched.stop()
+    assert len(ran) >= 1
+
+
+def test_api_v1_endpoints(tmp_path):
+    config = Config(app={"name": "NEXUS", "database_path": str(tmp_path / "api_v1.db"), "report_directory": str(tmp_path)})
+    client = TestClient(create_app(NexusService(config)))
+    assert client.get("/api/v1/system/info").status_code == 200
+    assert client.get("/api/v1/system/metrics").status_code == 200
+    assert client.get("/api/v1/system/cpu").status_code == 200
+    assert client.get("/api/v1/system/memory").status_code == 200
+    assert client.get("/api/v1/system/disk").status_code == 200
+    assert client.get("/api/v1/system/network").status_code == 200
+    assert client.get("/api/v1/anomalies").status_code == 200
+
+
+def test_cli_subcommands(tmp_path):
+    runner = CliRunner()
+    config = tmp_path / "sub_cli.yaml"
+    config.write_text(f"app:\n  name: NEXUS\n  database_path: '{tmp_path / 'sub_cli.db'}'\n  report_directory: '{tmp_path}'\n", encoding="utf-8")
+    
+    assert runner.invoke(app, ["--config", str(config), "config", "validate"]).exit_code == 0
+    assert runner.invoke(app, ["--config", str(config), "anomalies"]).exit_code == 0
+    assert runner.invoke(app, ["--config", str(config), "reports", "generate", "--output", str(tmp_path / "sub_rep.html")]).exit_code == 0
+    assert (tmp_path / "sub_rep.html").exists()
+    assert runner.invoke(app, ["--config", str(config), "reports", "list"]).exit_code == 0
