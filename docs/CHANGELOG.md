@@ -128,3 +128,4 @@
 - [v2.0.120] api/auth: harden API key verification header parsing (cycle 5)
 - [v2.0.121] cli/commands: polish Rich terminal dashboard tables and formatting (cycle 5)
 - [v2.0.122] reporting/exporters: enhance executive HTML report dark mode styling (cycle 5)
+- [v2.0.123] automation/scheduler: refine thread lifecycle and graceful shutdown hooks (cycle 5)
