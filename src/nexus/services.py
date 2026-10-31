@@ -11,6 +11,9 @@ from nexus.anomaly.detector import AnomalyDetector
 from nexus.core.config import Config
 from nexus.database.repository import Repository
 from nexus.diagnostics.engine import diagnose
+from nexus.infrastructure.docker import collect_containers
+from nexus.infrastructure.k8s import collect_kubernetes
+from nexus.infrastructure.ports import collect_listening_ports
 from nexus.monitoring.collector import MetricsCollector
 from nexus.monitoring.processes import collect_processes
 from nexus.monitoring.system import collect_metrics, collect_system_info
@@ -36,6 +39,15 @@ class NexusService:
 
     def processes(self, sort_by: str = "cpu", limit: int | None = None) -> list[dict[str, Any]]:
         return collect_processes(limit or int(self.config.monitoring["process_limit"]), sort_by)
+
+    def containers(self) -> list[dict[str, Any]]:
+        return collect_containers()
+
+    def kubernetes(self) -> dict[str, Any]:
+        return collect_kubernetes()
+
+    def listening_ports(self) -> list[dict[str, Any]]:
+        return collect_listening_ports()
 
     def inspect(self, error_messages: list[str] | None = None) -> dict[str, Any]:
         metrics = self.metrics()

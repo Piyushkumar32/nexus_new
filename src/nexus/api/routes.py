@@ -90,3 +90,16 @@ def alerts(request: Request) -> dict[str, Any]:
 @router.get("/reports", response_model=DataResponse)
 def reports(request: Request) -> dict[str, Any]:
     return {"data": service(request).reports()}
+@router.get("/api/v1/infrastructure/containers", response_model=DataResponse)
+def infrastructure_containers(request: Request) -> dict[str, Any]:
+    return {"data": service(request).containers()}
+
+
+@router.get("/api/v1/infrastructure/kubernetes", response_model=DataResponse)
+def infrastructure_kubernetes(request: Request) -> dict[str, Any]:
+    return {"data": service(request).kubernetes()}
+
+
+@router.get("/api/v1/infrastructure/ports", response_model=DataResponse)
+def infrastructure_ports(request: Request) -> dict[str, Any]:
+    return {"data": service(request).listening_ports()}

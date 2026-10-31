@@ -249,3 +249,18 @@ def test_cli_subcommands(tmp_path):
     assert runner.invoke(app, ["--config", str(config), "reports", "generate", "--output", str(tmp_path / "sub_rep.html")]).exit_code == 0
     assert (tmp_path / "sub_rep.html").exists()
     assert runner.invoke(app, ["--config", str(config), "reports", "list"]).exit_code == 0
+
+def test_infrastructure_collectors():
+    from nexus.infrastructure.docker import collect_containers
+    from nexus.infrastructure.k8s import collect_kubernetes
+    from nexus.infrastructure.ports import collect_listening_ports
+
+    containers = collect_containers()
+    assert isinstance(containers, list)
+
+    k8s = collect_kubernetes()
+    assert isinstance(k8s, dict)
+    assert "available" in k8s
+
+    ports = collect_listening_ports()
+    assert isinstance(ports, list)
