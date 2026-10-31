@@ -180,3 +180,4 @@
 - [v2.0.172] reporting/exporters: enhance executive HTML report dark mode styling (cycle 7)
 - [v2.0.173] automation/scheduler: refine thread lifecycle and graceful shutdown hooks (cycle 7)
 - [v2.0.174] infrastructure/docker: streamline container inspection and port mapping (cycle 7)
+- [v2.0.175] infrastructure/k8s: optimize pod and node discovery data models (cycle 7)
