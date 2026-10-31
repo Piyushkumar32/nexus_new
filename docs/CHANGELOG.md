@@ -93,3 +93,4 @@
 - [v2.0.085] analytics/health_score: calibrate deterministic health scoring weights (cycle 4)
 - [v2.0.086] analytics/metrics: add moving averages and percentile computations (cycle 4)
 - [v2.0.087] anomaly/detector: enhance first-difference resource spike detector (cycle 4)
+- [v2.0.088] alerts/engine: implement adaptive cooldown and alert deduplication (cycle 4)
