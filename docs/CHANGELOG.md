@@ -44,3 +44,4 @@
 - [v2.0.036] analytics/metrics: add moving averages and percentile computations (cycle 2)
 - [v2.0.037] anomaly/detector: enhance first-difference resource spike detector (cycle 2)
 - [v2.0.038] alerts/engine: implement adaptive cooldown and alert deduplication (cycle 2)
+- [v2.0.039] alerts/channels: add webhook retry backoff and timeout handling (cycle 2)
