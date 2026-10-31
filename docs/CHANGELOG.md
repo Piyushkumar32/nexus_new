@@ -64,3 +64,4 @@
 - [v2.0.056] monitoring/gpu: improve nvidia-smi execution parser and memory metrics (cycle 3)
 - [v2.0.057] monitoring/processes: add thread accounting and fault-tolerant process iterations (cycle 3)
 - [v2.0.058] diagnostics/rules: fine-tune CPU saturation and thrashing detection rules (cycle 3)
+- [v2.0.059] diagnostics/correlation: expand multi-metric anomaly correlation logic (cycle 3)
