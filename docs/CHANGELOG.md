@@ -34,3 +34,4 @@
 - [v2.0.026] monitoring/cpu: refine core frequency sampling and loadavg calculations (cycle 2)
 - [v2.0.027] monitoring/memory: optimize memory pressure and swap utilization buffers (cycle 2)
 - [v2.0.028] monitoring/disk: enhance mountpoint discovery and disk I/O metrics (cycle 2)
+- [v2.0.029] monitoring/network: add interface packet drop and throughput telemetry (cycle 2)
