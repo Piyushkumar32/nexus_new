@@ -174,3 +174,4 @@
 - [v2.0.166] database/backup: implement transactional database snapshot rotation (cycle 7)
 - [v2.0.167] security/auditor: update suspicious process signatures and port lists (cycle 7)
 - [v2.0.168] ai/advisor: expand offline troubleshooting playbooks and advice (cycle 7)
+- [v2.0.169] api/routes: add detailed OpenAPI schema response annotations (cycle 7)
