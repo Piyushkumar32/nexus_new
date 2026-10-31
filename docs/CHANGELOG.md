@@ -141,3 +141,4 @@
 - [v2.0.133] diagnostics/rules: fine-tune CPU saturation and thrashing detection rules (cycle 6)
 - [v2.0.134] diagnostics/correlation: expand multi-metric anomaly correlation logic (cycle 6)
 - [v2.0.135] analytics/health_score: calibrate deterministic health scoring weights (cycle 6)
+- [v2.0.136] analytics/metrics: add moving averages and percentile computations (cycle 6)
