@@ -6,9 +6,11 @@ from typing import Any
 
 from nexus.monitoring.cpu import collect_cpu
 from nexus.monitoring.disk import collect_disk_io, collect_disks
+from nexus.monitoring.gpu import collect_gpu
 from nexus.monitoring.memory import collect_memory
 from nexus.monitoring.network import collect_network
 from nexus.monitoring.processes import collect_processes
+from nexus.monitoring.sensors import collect_sensors
 from nexus.monitoring.system import collect_metrics, collect_system_info
 
 
@@ -36,6 +38,12 @@ class MetricsCollector:
 
     def collect_network(self) -> dict[str, Any]:
         return collect_network()
+
+    def collect_sensors(self) -> dict[str, Any]:
+        return collect_sensors()
+
+    def collect_gpu(self) -> list[dict[str, Any]]:
+        return collect_gpu()
 
     def collect_processes(self, sort_by: str = "cpu", limit: int | None = None) -> list[dict[str, Any]]:
         return collect_processes(limit=limit or self.process_limit, sort_by=sort_by)

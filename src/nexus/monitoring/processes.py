@@ -1,15 +1,19 @@
-"""Process inventory that tolerates processes disappearing or denying access."""
+﻿"""Process inventory that tolerates processes disappearing or denying access."""
+
+from __future__ import annotations
 
 import time
+from typing import Any
 
 import psutil
 
 
-def collect_processes(limit: int = 20, sort_by: str = "cpu") -> list[dict]:
+def collect_processes(limit: int = 20, sort_by: str = "cpu") -> list[dict[str, Any]]:
+    """Enumerate running processes with threads, status, and resource metrics."""
     if sort_by not in {"cpu", "memory"}:
         raise ValueError("sort_by must be 'cpu' or 'memory'")
     results = []
-    attrs = ["pid", "name", "status", "create_time", "memory_percent"]
+    attrs = ["pid", "name", "status", "create_time", "memory_percent", "num_threads", "username"]
     for process in psutil.process_iter(attrs=attrs, ad_value=None):
         try:
             info = process.info

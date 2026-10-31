@@ -11,8 +11,10 @@ import psutil
 
 from nexus.monitoring.cpu import collect_cpu
 from nexus.monitoring.disk import collect_disk_io, collect_disks
+from nexus.monitoring.gpu import collect_gpu
 from nexus.monitoring.memory import collect_memory
 from nexus.monitoring.network import collect_network
+from nexus.monitoring.sensors import collect_sensors
 
 
 def collect_system_info() -> dict:
@@ -39,4 +41,6 @@ def collect_metrics() -> dict:
         "disks": collect_disks(),
         "disk_io": collect_disk_io(),
         "network": collect_network(),
+        "sensors": collect_sensors(),
+        "gpu": collect_gpu(),
     }
