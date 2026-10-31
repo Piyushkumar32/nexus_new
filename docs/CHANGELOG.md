@@ -148,3 +148,4 @@
 - [v2.0.140] database/repository: optimize SQLite WAL mode indexing and query planner (cycle 6)
 - [v2.0.141] database/backup: implement transactional database snapshot rotation (cycle 6)
 - [v2.0.142] security/auditor: update suspicious process signatures and port lists (cycle 6)
+- [v2.0.143] ai/advisor: expand offline troubleshooting playbooks and advice (cycle 6)
