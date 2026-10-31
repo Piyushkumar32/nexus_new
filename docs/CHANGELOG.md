@@ -38,3 +38,4 @@
 - [v2.0.030] monitoring/sensors: extend hardware temperature sensor polling safeguards (cycle 2)
 - [v2.0.031] monitoring/gpu: improve nvidia-smi execution parser and memory metrics (cycle 2)
 - [v2.0.032] monitoring/processes: add thread accounting and fault-tolerant process iterations (cycle 2)
+- [v2.0.033] diagnostics/rules: fine-tune CPU saturation and thrashing detection rules (cycle 2)
