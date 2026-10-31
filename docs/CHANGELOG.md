@@ -61,3 +61,4 @@
 - [v2.0.053] monitoring/disk: enhance mountpoint discovery and disk I/O metrics (cycle 3)
 - [v2.0.054] monitoring/network: add interface packet drop and throughput telemetry (cycle 3)
 - [v2.0.055] monitoring/sensors: extend hardware temperature sensor polling safeguards (cycle 3)
+- [v2.0.056] monitoring/gpu: improve nvidia-smi execution parser and memory metrics (cycle 3)
