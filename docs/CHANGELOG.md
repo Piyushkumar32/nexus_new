@@ -83,3 +83,4 @@
 - [v2.0.075] infrastructure/k8s: optimize pod and node discovery data models (cycle 3)
 - [v2.0.076] monitoring/cpu: refine core frequency sampling and loadavg calculations (cycle 4)
 - [v2.0.077] monitoring/memory: optimize memory pressure and swap utilization buffers (cycle 4)
+- [v2.0.078] monitoring/disk: enhance mountpoint discovery and disk I/O metrics (cycle 4)
