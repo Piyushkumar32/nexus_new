@@ -8,3 +8,4 @@
 ## Engineering Expansion Log
 - [v2.0.001] monitoring/cpu: refine core frequency sampling and loadavg calculations (cycle 1)
 - [v2.0.002] monitoring/memory: optimize memory pressure and swap utilization buffers (cycle 1)
+- [v2.0.003] monitoring/disk: enhance mountpoint discovery and disk I/O metrics (cycle 1)
