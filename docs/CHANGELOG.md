@@ -29,3 +29,4 @@
 - [v2.0.021] cli/commands: polish Rich terminal dashboard tables and formatting (cycle 1)
 - [v2.0.022] reporting/exporters: enhance executive HTML report dark mode styling (cycle 1)
 - [v2.0.023] automation/scheduler: refine thread lifecycle and graceful shutdown hooks (cycle 1)
+- [v2.0.024] infrastructure/docker: streamline container inspection and port mapping (cycle 1)
