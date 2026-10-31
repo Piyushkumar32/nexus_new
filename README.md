@@ -1,87 +1,107 @@
-# NEXUS — System Intelligence & Diagnostic Engine
+﻿# NEXUS — System Intelligence & Diagnostic Engine
 
-NEXUS is a local-first Python CLI and diagnostics platform for inspecting system resources, identifying common bottlenecks, analyzing plain-text logs, and saving portable reports. Measurements come from the host through `psutil`; NEXUS does not use machine learning or send telemetry to a service.
+NEXUS is a local-first Python CLI and diagnostics platform for inspecting system resources, identifying bottlenecks, analyzing plain-text logs, and exporting executive reports. Built with transparent, explainable algorithms and cross-platform compatibility.
 
-## Capabilities
+[![CI](https://github.com/Piyushkumar32/nexus_new/actions/workflows/ci.yml/badge.svg)](https://github.com/Piyushkumar32/nexus_new/actions/workflows/ci.yml)
+[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-- Cross-platform host, CPU, memory, swap, disk and process inventory.
-- Configurable thresholds, weighted health score, actionable diagnostic findings, and simple explainable spike/repeated-error detection.
-- Plain-text log severity counts, timestamp parsing, malformed-line accounting, and recurring error summaries.
-- Local terminal alerts and SQLite history for snapshots, scores, diagnostics, anomalies and alerts.
-- JSON, HTML and CSV report exports; a FastAPI read API sharing the CLI service layer.
-- Rich and Typer terminal commands with optional live metric refresh.
+## Core Capabilities
+
+- **System Observability**: Comprehensive CPU, memory, disk, network throughput, and running process inventory.
+- **Explainable Health Scoring**: Deterministic 0–100 health evaluation with configurable component weights and threshold warnings.
+- **Root-Cause Diagnostics**: Rule-based detection of resource bottlenecks, storage saturation, and rogue processes with concrete remediation actions.
+- **Streaming Log Intelligence**: Fast line-by-line parsing of local log files with severity distribution analysis and recurring error grouping without memory bloat.
+- **Anomaly Detection**: Detection of sudden resource spikes and recurring error patterns with historical context.
+- **Alert Suppression & Deduplication**: Smart alert engine with cooldown windows to avoid alert fatigue.
+- **Local Persistence**: Zero-setup SQLite persistence (WAL mode) for snapshots, health history, diagnostics, and reports.
+- **Executive Reporting**: High-quality HTML dashboards, JSON bundles, and CSV tables.
+- **Dual Interfaces**: Interactive terminal interface (`Typer` + `Rich`) and local REST API (`FastAPI` + `Uvicorn`).
 
 ## Installation
 
-Requires Python 3.12 or newer on Windows, Linux or macOS.
+```bash
+git clone https://github.com/Piyushkumar32/nexus_new.git
+cd nexus_new
+python -m venv .venv
+# Activate environment:
+# Windows:
+.venv\Scripts\activate
+# Linux/macOS:
+source .venv/bin/activate
 
-```powershell
-py -3.12 -m venv .venv
-.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-python -m pip install -e ".[dev]"
+pip install -e .[dev]
 ```
 
-On Linux/macOS, activate with `source .venv/bin/activate` instead. The editable install exposes the `nexus` command.
+## Quick Start (CLI)
 
-## CLI
-
-```text
-nexus --help
+```bash
+# Host system overview
 nexus info
-nexus monitor
-nexus monitor --watch --interval 2
-nexus health
-nexus processes --sort memory --limit 15
-nexus diagnose
-nexus logs analyze ./application.log
-nexus report --output ./reports/current.html
-nexus alerts
-```
 
-Pass `--config config/default.yaml` before a command to use a YAML file. Running `health`, `diagnose`, or `report` captures and persists a fresh snapshot. The database defaults to `~/.nexus/nexus.db`; process CPU values are instantaneous samples and can initially be zero.
+# Point-in-time metrics
+nexus monitor
+
+# Continuous live-updating monitor
+nexus monitor --watch
+
+# System health assessment
+nexus health
+
+# Process inventory
+nexus processes --sort cpu --limit 10
+
+# System diagnostics & recommendations
+nexus diagnose
+
+# Analyze application logs
+nexus logs analyze /path/to/logfile.log
+
+# Generate executive HTML report
+nexus reports generate -o executive_report.html
+
+# Start local REST API
+nexus api start --port 8000
+```
 
 ## REST API
 
-Start the API with `uvicorn nexus.api.app:app --app-dir src --host 127.0.0.1 --port 8000`. The API is intended for local use; no authentication is provided, so do not expose it to untrusted networks.
+When the API server is active (`nexus api start`), interactive documentation is available:
+- **Swagger UI**: `http://127.0.0.1:8000/docs`
+- **ReDoc**: `http://127.0.0.1:8000/redoc`
 
-| Method | Endpoint | Purpose |
-|---|---|---|
-| GET | `/health` | API liveness |
-| GET | `/system/info` | Host information |
-| GET | `/system/metrics` | CPU, memory and disk snapshot |
-| GET | `/system/processes?sort_by=cpu&limit=20` | Process inventory (`cpu` or `memory`) |
-| GET | `/diagnostics` | Persisted diagnostic history |
-| GET | `/alerts` | Persisted alert history |
-| GET | `/reports` | Recent saved metric snapshots |
+Core endpoints include:
+- `GET /health`
+- `GET /api/v1/system/info`
+- `GET /api/v1/system/metrics`
+- `GET /api/v1/system/cpu`
+- `GET /api/v1/system/memory`
+- `GET /api/v1/system/disk`
+- `GET /api/v1/system/network`
+- `GET /api/v1/system/processes`
+- `GET /api/v1/diagnostics`
+- `GET /api/v1/anomalies`
+- `GET /api/v1/alerts`
+- `GET /api/v1/reports`
 
-Interactive API documentation is available at `/docs`.
+## Testing & Quality
 
-## Configuration
-
-`config/default.yaml` documents defaults for monitoring cadence, output paths, resource and process thresholds, anomaly detection, scoring weights, and local logging. NEXUS validates the interval, process limit, threshold ranges, and non-negative scoring weights when loading configuration.
-
-## Architecture
-
-See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for module responsibilities and data flow. SQLite is the only persistence dependency; reports are ordinary local files.
-
-## Development and tests
-
-```text
-python -m pytest
-ruff check .
+```bash
+pytest tests
+ruff check src tests
 ```
 
-System calls are isolated in `monitoring/` and can be mocked in tests. API and CLI tests use temporary configuration/database paths.
+## Documentation
 
-## Roadmap
-
-See [docs/ROADMAP.md](docs/ROADMAP.md). The initial release intentionally focuses on local snapshots and rule-based diagnostics; it does not offer a background daemon, remote notification integrations, or long-term trend visualization.
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md). Please include tests for behavioral changes and keep platform-specific metrics optional.
+Detailed guides are available in the [`docs/`](docs/) directory:
+- [Architecture](docs/ARCHITECTURE.md)
+- [CLI Reference](docs/CLI.md)
+- [REST API Reference](docs/API.md)
+- [Configuration](docs/CONFIGURATION.md)
+- [Development Guide](docs/DEVELOPMENT.md)
+- [Testing Guide](docs/TESTING.md)
+- [Roadmap](docs/ROADMAP.md)
 
 ## License
 
-MIT; see [LICENSE](LICENSE).
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.

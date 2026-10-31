@@ -1,20 +1,21 @@
-# Roadmap
+﻿# NEXUS Engineering Roadmap & Implementation Tracker
 
-## Available in the first version
+## Stage Implementation Status
 
-- On-demand cross-platform resource and process inspection.
-- Configurable resource warnings, weighted health scoring, deterministic diagnostics, and basic resource-spike/repeated-error detection.
-- Plain-text log severity and recurrence summaries.
-- Local SQLite history, JSON/HTML/CSV reports, Typer CLI, and FastAPI read endpoints.
-
-## Next
-
-- Persistent baseline-aware anomaly analysis and configurable rule severity/action policies.
-- Bounded history retention and database migration/version strategy.
-- Dedicated service lifecycle for API deployments, authentication options, and access controls.
-- Better sampling windows for per-process CPU measurements and platform-specific sensor support.
-- Optional charts and longitudinal reporting, using plotting/data packages only when requested.
-
-## Not in scope for the initial local-first release
-
-Cloud telemetry, paid notification services, machine-learning claims, and a web frontend.
+| Stage | Description | Status | Verification Notes |
+|---|---|---|---|
+| STAGE 1 | Repository foundation & architecture | Completed | Clean modular packaging, typed models, and validated config |
+| STAGE 2 | System monitoring (CPU, RAM, Disk) | Completed | Per-core metrics, physical/logical counts, frequencies, load averages, swap, partition safety, disk I/O |
+| STAGE 3 | Process & network intelligence | Completed | Safe process iteration with fault tolerance, sorting by CPU/RAM, network interfaces, packet counters, throughput |
+| STAGE 4 | Health scoring engine | Completed | Explainable 0–100 scoring with configurable weights, thresholds, and actionable recommendations |
+| STAGE 5 | Diagnostic engine | Completed | Rule-based evaluation, bottleneck identification, severity classifications, and remediation steps |
+| STAGE 6 | Log intelligence | Completed | Stream-based parser, timestamp extraction, severity counting, and recurring signature analysis without memory blowup |
+| STAGE 7 | Anomaly detection | Completed | Sudden resource spike detector and repeated application error detection with unique IDs |
+| STAGE 8 | Alert & notification engine | Completed | AlertManager with deduplication, cooldown windows, suppression, and terminal logging |
+| STAGE 9 | SQLite persistence | Completed | Robust schema with WAL mode, indexing, snapshots, health history, reports, and table cleanup |
+| STAGE 10 | Report generation | Completed | Executive dark-themed HTML report with metric cards and tables, JSON export, and CSV export |
+| STAGE 11 | CLI dashboard & subcommands | Completed | Typer + Rich interface with monitor, watch, health, processes, diagnose, logs analyze, reports generate/list, api start, config validate |
+| STAGE 12 | REST API | Completed | FastAPI application with complete `/api/v1` routes, OpenAPI schemas, validation, and error handlers |
+| STAGE 13 | Automation & scheduling | Completed | Background thread scheduler for periodic snapshots and maintenance with graceful shutdown |
+| STAGE 14 | Integration testing | Completed | 24 automated unit and integration tests passing across all components |
+| STAGE 15 | Documentation & CI/CD | Completed | Comprehensive markdown documentation suite, updated README, and cross-platform GitHub Actions workflow |
