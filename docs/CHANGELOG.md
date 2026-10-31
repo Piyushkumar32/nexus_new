@@ -151,3 +151,4 @@
 - [v2.0.143] ai/advisor: expand offline troubleshooting playbooks and advice (cycle 6)
 - [v2.0.144] api/routes: add detailed OpenAPI schema response annotations (cycle 6)
 - [v2.0.145] api/auth: harden API key verification header parsing (cycle 6)
+- [v2.0.146] cli/commands: polish Rich terminal dashboard tables and formatting (cycle 6)
