@@ -71,3 +71,4 @@
 - [v2.0.063] alerts/engine: implement adaptive cooldown and alert deduplication (cycle 3)
 - [v2.0.064] alerts/channels: add webhook retry backoff and timeout handling (cycle 3)
 - [v2.0.065] database/repository: optimize SQLite WAL mode indexing and query planner (cycle 3)
+- [v2.0.066] database/backup: implement transactional database snapshot rotation (cycle 3)
