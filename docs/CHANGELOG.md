@@ -177,3 +177,4 @@
 - [v2.0.169] api/routes: add detailed OpenAPI schema response annotations (cycle 7)
 - [v2.0.170] api/auth: harden API key verification header parsing (cycle 7)
 - [v2.0.171] cli/commands: polish Rich terminal dashboard tables and formatting (cycle 7)
+- [v2.0.172] reporting/exporters: enhance executive HTML report dark mode styling (cycle 7)
