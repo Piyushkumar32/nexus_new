@@ -160,3 +160,4 @@
 - [v2.0.152] monitoring/memory: optimize memory pressure and swap utilization buffers (cycle 7)
 - [v2.0.153] monitoring/disk: enhance mountpoint discovery and disk I/O metrics (cycle 7)
 - [v2.0.154] monitoring/network: add interface packet drop and throughput telemetry (cycle 7)
+- [v2.0.155] monitoring/sensors: extend hardware temperature sensor polling safeguards (cycle 7)
