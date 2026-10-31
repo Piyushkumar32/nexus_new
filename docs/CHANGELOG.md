@@ -167,3 +167,4 @@
 - [v2.0.159] diagnostics/correlation: expand multi-metric anomaly correlation logic (cycle 7)
 - [v2.0.160] analytics/health_score: calibrate deterministic health scoring weights (cycle 7)
 - [v2.0.161] analytics/metrics: add moving averages and percentile computations (cycle 7)
+- [v2.0.162] anomaly/detector: enhance first-difference resource spike detector (cycle 7)
