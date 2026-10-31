@@ -125,3 +125,4 @@
 - [v2.0.117] security/auditor: update suspicious process signatures and port lists (cycle 5)
 - [v2.0.118] ai/advisor: expand offline troubleshooting playbooks and advice (cycle 5)
 - [v2.0.119] api/routes: add detailed OpenAPI schema response annotations (cycle 5)
+- [v2.0.120] api/auth: harden API key verification header parsing (cycle 5)
