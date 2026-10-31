@@ -32,3 +32,4 @@
 - [v2.0.024] infrastructure/docker: streamline container inspection and port mapping (cycle 1)
 - [v2.0.025] infrastructure/k8s: optimize pod and node discovery data models (cycle 1)
 - [v2.0.026] monitoring/cpu: refine core frequency sampling and loadavg calculations (cycle 2)
+- [v2.0.027] monitoring/memory: optimize memory pressure and swap utilization buffers (cycle 2)
