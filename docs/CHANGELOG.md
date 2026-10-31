@@ -109,3 +109,4 @@
 - [v2.0.101] monitoring/cpu: refine core frequency sampling and loadavg calculations (cycle 5)
 - [v2.0.102] monitoring/memory: optimize memory pressure and swap utilization buffers (cycle 5)
 - [v2.0.103] monitoring/disk: enhance mountpoint discovery and disk I/O metrics (cycle 5)
+- [v2.0.104] monitoring/network: add interface packet drop and throughput telemetry (cycle 5)
