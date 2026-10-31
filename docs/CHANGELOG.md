@@ -90,3 +90,4 @@
 - [v2.0.082] monitoring/processes: add thread accounting and fault-tolerant process iterations (cycle 4)
 - [v2.0.083] diagnostics/rules: fine-tune CPU saturation and thrashing detection rules (cycle 4)
 - [v2.0.084] diagnostics/correlation: expand multi-metric anomaly correlation logic (cycle 4)
+- [v2.0.085] analytics/health_score: calibrate deterministic health scoring weights (cycle 4)
