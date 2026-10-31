@@ -31,3 +31,4 @@
 - [v2.0.023] automation/scheduler: refine thread lifecycle and graceful shutdown hooks (cycle 1)
 - [v2.0.024] infrastructure/docker: streamline container inspection and port mapping (cycle 1)
 - [v2.0.025] infrastructure/k8s: optimize pod and node discovery data models (cycle 1)
+- [v2.0.026] monitoring/cpu: refine core frequency sampling and loadavg calculations (cycle 2)
