@@ -182,3 +182,4 @@
 - [v2.0.174] infrastructure/docker: streamline container inspection and port mapping (cycle 7)
 - [v2.0.175] infrastructure/k8s: optimize pod and node discovery data models (cycle 7)
 - [v2.0.176] monitoring/cpu: refine core frequency sampling and loadavg calculations (cycle 8)
+- [v2.0.177] monitoring/memory: optimize memory pressure and swap utilization buffers (cycle 8)
