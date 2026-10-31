@@ -53,3 +53,4 @@
 - [v2.0.045] api/auth: harden API key verification header parsing (cycle 2)
 - [v2.0.046] cli/commands: polish Rich terminal dashboard tables and formatting (cycle 2)
 - [v2.0.047] reporting/exporters: enhance executive HTML report dark mode styling (cycle 2)
+- [v2.0.048] automation/scheduler: refine thread lifecycle and graceful shutdown hooks (cycle 2)
