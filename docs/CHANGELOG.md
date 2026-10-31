@@ -55,3 +55,4 @@
 - [v2.0.047] reporting/exporters: enhance executive HTML report dark mode styling (cycle 2)
 - [v2.0.048] automation/scheduler: refine thread lifecycle and graceful shutdown hooks (cycle 2)
 - [v2.0.049] infrastructure/docker: streamline container inspection and port mapping (cycle 2)
+- [v2.0.050] infrastructure/k8s: optimize pod and node discovery data models (cycle 2)
