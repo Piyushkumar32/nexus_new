@@ -104,3 +104,4 @@
 - [v2.0.096] cli/commands: polish Rich terminal dashboard tables and formatting (cycle 4)
 - [v2.0.097] reporting/exporters: enhance executive HTML report dark mode styling (cycle 4)
 - [v2.0.098] automation/scheduler: refine thread lifecycle and graceful shutdown hooks (cycle 4)
+- [v2.0.099] infrastructure/docker: streamline container inspection and port mapping (cycle 4)
