@@ -7,3 +7,4 @@
 - Added automated unit, API, and CLI coverage plus GitHub Actions checks.
 ## Engineering Expansion Log
 - [v2.0.001] monitoring/cpu: refine core frequency sampling and loadavg calculations (cycle 1)
+- [v2.0.002] monitoring/memory: optimize memory pressure and swap utilization buffers (cycle 1)
