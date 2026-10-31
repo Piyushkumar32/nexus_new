@@ -37,3 +37,4 @@
 - [v2.0.029] monitoring/network: add interface packet drop and throughput telemetry (cycle 2)
 - [v2.0.030] monitoring/sensors: extend hardware temperature sensor polling safeguards (cycle 2)
 - [v2.0.031] monitoring/gpu: improve nvidia-smi execution parser and memory metrics (cycle 2)
+- [v2.0.032] monitoring/processes: add thread accounting and fault-tolerant process iterations (cycle 2)
