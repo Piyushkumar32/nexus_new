@@ -106,3 +106,4 @@
 - [v2.0.098] automation/scheduler: refine thread lifecycle and graceful shutdown hooks (cycle 4)
 - [v2.0.099] infrastructure/docker: streamline container inspection and port mapping (cycle 4)
 - [v2.0.100] infrastructure/k8s: optimize pod and node discovery data models (cycle 4)
+- [v2.0.101] monitoring/cpu: refine core frequency sampling and loadavg calculations (cycle 5)
